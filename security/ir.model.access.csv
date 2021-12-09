@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rentalg1c_rentalg1c,rentalg1c.rentalg1c,model_rentalg1c_rentalg1c,,1,0,0,0
