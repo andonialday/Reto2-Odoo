@@ -9,5 +9,5 @@ class event(models.Model):
     dateEnd = fields.Date()
     description = fields.Text()
     
-    client_id = fields.Many2one('rentalg1c.client', ondelete='set null', string="Client")
+    client = fields.Many2one('rentalg1c.client', ondelete='set null', string="Client")
     event_equipments = fields.Many2one('rentalg1c.event_equipment', ondelete='set null', string="Rental")

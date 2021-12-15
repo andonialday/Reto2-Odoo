@@ -7,5 +7,5 @@ class event_equipment(models.Model):
     
     quantity = fields.Integer(string = "Quantity", required = True)
     
-    event_id = fields.One2many('rentalg1c.event', id, string="Event")
-    equipment_id = fields.One2many('rentalg1c.equipment', id, string="Equipment")
+    event = fields.One2many('rentalg1c.event', 'event_equipments', string="Event")
+    equipment = fields.One2many('rentalg1c.equipment', 'event_equipments', string="Equipment")
