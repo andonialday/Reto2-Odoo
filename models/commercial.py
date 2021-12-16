@@ -11,10 +11,10 @@ class commercial(models.Model):
      _inherit = 'res.users'
      
      especialization = fields.Selection([('0','SONIDO'),
-                                   ('1','ILUMINACION'),
-                                   ('2','PIROTECNIA'),
-                                    ('3','LOGISTICA')
-                                   ],string='Especializacion', copy='False' )
+                                         ('1','ILUMINACION'),
+                                         ('2','PIROTECNIA'),
+                                         ('3','LOGISTICA')
+                                        ],string='Especializacion', copy='False' )
 
      client = fields.One2many('rentalg1c.client','client', ondelete='set null', string="Client")
      
