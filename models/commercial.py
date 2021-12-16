@@ -16,5 +16,7 @@ class commercial(models.Model):
                                          ('3','LOGISTICA')
                                         ],string='Especializacion', copy='False' )
 
+
+
      client = fields.One2many('rentalg1c.client','client', ondelete='set null', string="Client")
      
