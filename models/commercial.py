@@ -4,7 +4,7 @@
 
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields
 
 class commercial(models.Model):
      _name = 'rentalg1c.commercial'
@@ -18,5 +18,5 @@ class commercial(models.Model):
 
 
 
-     client = fields.One2many('rentalg1c.client','client', ondelete='set null', string="Client")
+     client = fields.One2many('rentalg1c.client','commercial', ondelete='set null', string="Client")
      
