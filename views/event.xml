@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rentalg1c_event_tree">
+            <field name="name">rentalg1c_event_tree</field>
+            <field name="model">rentalg1c.event</field>
+            <field name="arch" type="xml">
+                <tree string="event list">
+                    <field name="dateStart" string="Event Start Date"/>
+                    <field name="dateEnd" string="Event Ending Date"/>
+                    <field name="description" string="Event Description"/>
+                    <!--<field name="name" position="after">              
+                        <field name="name" string="Client Name"/>
+                    </field>          -->
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="rentalg1c_event_form">
+            <field name="name">rentalg1c_event _form</field>
+            <field name="model">rentalg1c.event</field>
+            <field name="arch" type="xml">
+                <form string="event form">
+                    <field name="dateStart" string="Event Start Date"/>
+                    <field name="dateEnd" string="Event Ending Date"/>
+                    <field name="description" string="Event Description"/>
+                    <!--<field name="name" position="after">              
+                        <field name="name" string="Client Name"/>
+                    </field>  --> 
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
