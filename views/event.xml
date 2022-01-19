@@ -5,10 +5,10 @@
             <field name="model">rentalg1c.event</field>
             <field name="arch" type="xml">
                 <tree string="event list">
+                    <!--<field name="name" string="Event Name"/>-->
                     <field name="dateStart" string="Event Start Date"/>
                     <field name="dateEnd" string="Event Ending Date"/>
                     <field name="description" string="Event Description"/>
-                    <!--
                     <field name="client">                             
                         <field name="name" string="Client Name"/>   
                     </field> 
@@ -20,7 +20,6 @@
                             </field>         
                         </tree>
                     </field>    
-                    -->      
                 </tree>
             </field>
         </record>
@@ -30,6 +29,7 @@
             <field name="model">rentalg1c.event</field>
             <field name="arch" type="xml">
                 <form string="event form">
+                    <!--<field name="name" string="Event Name"/>-->
                     <field name="dateStart" string="Event Start Date"/>
                     <field name="dateEnd" string="Event Ending Date"/>
                     <field name="description" string="Event Description"/>

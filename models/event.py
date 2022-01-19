@@ -5,6 +5,7 @@ from odoo import models, fields, api
 class event(models.Model):
     _name = 'rentalg1c.event'
     
+    name = fields.Char()
     dateStart = fields.Date()
     dateEnd = fields.Date()
     description = fields.Text()
