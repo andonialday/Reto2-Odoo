@@ -1,4 +1,4 @@
-<odoo>
+<!--<odoo>
     <data>
         
         <record model="ir.ui.view" id="rentalg1c_equipment">
@@ -14,5 +14,64 @@
           </field>
         </record>
        
+    </data>
+</odoo>-->
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rentalg1c_equipment_tree">
+            <field name="name">rentalg1c list</field>
+            <field name="model">rentalg1c.equipment</field>
+            <field name="arch" type="xml">
+                <tree string="equipment">
+                    <field name="name" string="Equipment Name"/>
+                    <field name="dateadd" string="Equipment buy date"/>
+                    <field name="cost" string="Equipment cost"/>
+                    <field name="description" string="Equipment Description"/>
+                    <!--<field name="client">                             
+                        <field name="name" string="Client Name"/>   
+                    </field> 
+                    <field name="event_equipments">         
+                        <tree>                                 
+                            <field name="quantity" string="Quantity"/> 
+                            <field name="equipment">                             
+                                <field name="name" string="Equipment"/>   
+                            </field>         
+                        </tree>
+                    </field>    -->
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="rentalg1c_equipment_form">
+            <field name="name">rentalg1c_equipment_form</field>
+            <field name="model">rentalg1c.equipment</field>
+            <field name="arch" type="xml">
+                <form string="equipment form">
+                    <group>                         
+                        <group>
+                           <separator string="DATA" colspan="2"/>
+                            <field name="name" string="Equipment Name"/>
+                            <field name="dateadd" string="Equipment buy date"/>
+                            <field name="cost" string="Equipment cost"/>
+                            <field name="description" string="Equipment Description"/>
+                        </group>
+                    </group>
+                    <!--
+                   <field name="client">                             
+                        <field name="name" string="Client Name"/>   
+                    </field> 
+                    <field name="event_equipments">         
+                        <form>                                 
+                            <field name="quantity" string="Quantity"/> 
+                            <field name="equipment">                             
+                                <field name="name" string="Equipment"/>   
+                            </field>         
+                        </form>
+                    </field>    
+                    -->   
+                </form>
+            </field>
+        </record>
     </data>
 </odoo>
