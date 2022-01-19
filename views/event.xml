@@ -8,9 +8,19 @@
                     <field name="dateStart" string="Event Start Date"/>
                     <field name="dateEnd" string="Event Ending Date"/>
                     <field name="description" string="Event Description"/>
-                    <!--<field name="name" position="after">              
-                        <field name="name" string="Client Name"/>
-                    </field>          -->
+                    <!--
+                    <field name="client">                             
+                        <field name="name" string="Client Name"/>   
+                    </field> 
+                    <field name="event_equipments">         
+                        <tree>                                 
+                            <field name="quantity" string="Quantity"/> 
+                            <field name="equipment">                             
+                                <field name="name" string="Equipment"/>   
+                            </field>         
+                        </tree>
+                    </field>    
+                    -->      
                 </tree>
             </field>
         </record>
@@ -23,9 +33,19 @@
                     <field name="dateStart" string="Event Start Date"/>
                     <field name="dateEnd" string="Event Ending Date"/>
                     <field name="description" string="Event Description"/>
-                    <!--<field name="name" position="after">              
-                        <field name="name" string="Client Name"/>
-                    </field>  --> 
+                    <!--
+                   <field name="client">                             
+                        <field name="name" string="Client Name"/>   
+                    </field> 
+                    <field name="event_equipments">         
+                        <form>                                 
+                            <field name="quantity" string="Quantity"/> 
+                            <field name="equipment">                             
+                                <field name="name" string="Equipment"/>   
+                            </field>         
+                        </form>
+                    </field>    
+                    -->   
                 </form>
             </field>
         </record>
