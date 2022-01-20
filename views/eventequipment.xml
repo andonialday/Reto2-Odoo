@@ -20,47 +20,15 @@
             </field>
         </record>
     
-   
-
-        <!-- actions opening views on models -->
-        <!--
-        <record model="ir.actions.act_window" id="rentalg1c.action_window">
-          <field name="name">rentalg1c window</field>
-          <field name="res_model">rentalg1c.rentalg1c</field>
-          <field name="view_mode">tree,form</field>
+        <!--        MENUACTION-->
+        <record model="ir.actions.act_window" id="event_equipment_list_action">
+            <field name="name">Rentals</field>
+            <field name="res_model">rentalg1c.event_equipment</field>
+            <field name="view_mode">tree,form</field>
         </record>
-        -->
-
-        <!-- server action to the one above -->
-        <!--
-        <record model="ir.actions.server" id="rentalg1c.action_server">
-          <field name="name">rentalg1c server</field>
-          <field name="model_id" ref="model_rentalg1c_rentalg1c"/>
-          <field name="code">
-            action = {
-              "type": "ir.actions.act_window",
-              "view_mode": "tree,form",
-              "res_model": self._name,
-            }
-          </field>
-        </record>
-        -->
-
-        <!-- Top menu item -->
-        <!--
-        <menuitem name="rentalg1c" id="rentalg1c.menu_root"/>
-        -->
-        <!-- menu categories -->
-        <!--
-        <menuitem name="Menu 1" id="rentalg1c.menu_1" parent="rentalg1c.menu_root"/>
-        <menuitem name="Menu 2" id="rentalg1c.menu_2" parent="rentalg1c.menu_root"/>
-        -->
-        <!-- actions -->
-        <!--
-        <menuitem name="List" id="rentalg1c.menu_1_list" parent="rentalg1c.menu_1"
-                  action="rentalg1c.action_window"/>
-        <menuitem name="Server to list" id="rentalg1c" parent="rentalg1c.menu_2"
-                  action="rentalg1c.action_server"/>
-        -->
+        
+        <!--        MENUITEM-->
+        <menuitem name="Rental List" id="rentalg1c_event_list" parent="rentalg1c_menu" action="event_equipment_list_action"/>
+        
     </data>
 </odoo>
