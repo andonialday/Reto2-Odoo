@@ -11,4 +11,4 @@ class event(models.Model):
     description = fields.Text()
     
     client = fields.Many2one('rentalg1c.client', ondelete='set null', string="Client")
-    event_equipments = fields.Many2one('rentalg1c.event_equipment', ondelete='set null', string="Rental")
+    event_equipments = fields.One2many('rentalg1c.event_equipment', 'event_equipments', ondelete='set null', string="Rental")

@@ -1,70 +1,80 @@
 <odoo>
     <data>
-<!--        VIEWS-->
+        <!--        VIEWS-->
+        <!--    TREE-->
         <record model="ir.ui.view" id="rentalg1c_event_tree">
             <field name="name">rentalg1c_event_tree</field>
             <field name="model">rentalg1c.event</field>
             <field name="arch" type="xml">
                 <tree string="event list">
                     <group>
-<!--                        <field name="name" string="Event Name"/>-->
+                        <field name="name" string="Event Name"/>
                         <field name="dateStart" string="Event Start Date"/>
                         <field name="dateEnd" string="Event Ending Date"/>
-                        <field name="description" string="Event Description"/>
-                    </group>
-                    <group>
                         <field name="client">                             
                             <field name="name" string="Client Name"/>   
                         </field> 
-                        <field name="event_equipments">         
-                            <tree>                                 
-                                <field name="quantity" string="Quantity"/> 
-                                <field name="equipment">                             
-                                    <field name="name" string="Equipment"/>   
-                                </field>         
-                            </tree>
-                        </field>   
-                    </group>  
+                    </group>
+                    <group>
+                        <field name="description" string="Event Description"/>
+                    </group>
+                    <notebook>
+                        <page>
+                            <field name="event_equipments">         
+                                <tree>                                 
+                                    <field name="quantity" string="Quantity"/> 
+                                    <field name="equipment">                             
+                                        <!--field name="name" string="Equipment"/-->   
+                                    </field>         
+                                </tree>
+                            </field> 
+                        </page>
+                    </notebook> 
                 </tree>
             </field>
         </record>
     
+        <!--    FORM-->
         <record model="ir.ui.view" id="rentalg1c_event_form">
             <field name="name">rentalg1c_event _form</field>
             <field name="model">rentalg1c.event</field>
             <field name="arch" type="xml">
                 <form string="event form">
                     <group>
-<!--                        <field name="name" string="Event Name"/>-->
+                        <field name="name" string="Event Name"/>
                         <field name="dateStart" string="Event Start Date"/>
                         <field name="dateEnd" string="Event Ending Date"/>
-                        <field name="description" string="Event Description"/>
-                    </group>
-                    <group>
                         <field name="client">                             
                             <field name="name" string="Client Name"/>   
                         </field> 
-                        <field name="event_equipments">         
-                            <form>                                 
-                                <field name="quantity" string="Quantity"/> 
-                                <field name="equipment">                             
-                                    <field name="name" string="Equipment"/>   
-                                </field>         
-                            </form>
-                        </field> 
-                    </group> 
+                    </group>
+                    <group>
+                        <field name="description" string="Event Description"/>
+                    </group>
+                    <notebook>
+                        <page>
+                            <field name="event_equipments">         
+                                <tree>                                 
+                                    <field name="quantity" string="Quantity"/> 
+                                    <field name="equipment">                             
+                                        <!--field name="name" string="Equipment"/-->   
+                                    </field>         
+                                </tree>
+                            </field> 
+                        </page>
+                    </notebook> 
                 </form>
             </field>
         </record>
         
-<!--        MENUACTION-->
+        <!--        MENUACTION-->
         <record model="ir.actions.act_window" id="event_list_action">
             <field name="name">Events</field>
             <field name="res_model">rentalg1c.event</field>
             <field name="view_mode">tree,form</field>
         </record>
         
-<!--        MENUITEM-->
+        <!--        MENUITEM-->
         <menuitem name="Event List" id="rentalg1c_event_list" parent="rentalg1c_menu" action="event_list_action"/>
         
     </data>
