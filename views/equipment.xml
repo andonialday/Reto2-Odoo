@@ -73,5 +73,11 @@
                 </form>
             </field>
         </record>
+         <record model="ir.actions.act_window" id="equipment_list_action">
+            <field name="name">Equipments</field>
+            <field name="res_model">rentalg1c.equipment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+         <menuitem name="Equipment" id="rentalg1c_equipment_list" parent="rentalg1c_menu" action="equipment_list_action"/>
     </data>
 </odoo>

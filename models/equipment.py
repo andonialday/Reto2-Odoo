@@ -14,4 +14,4 @@ class equipment(models.Model):
      cost = fields.Float()
      description = fields.Text()
      
-     event_equipments=fields.Many2one('rentalg1c.event_equipment',ondelete='set null', string='Rental')
+     event_equipments=fields.One2many('rentalg1c.event_equipment','equipment',ondelete='set null', string='Rental')
