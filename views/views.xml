@@ -23,11 +23,6 @@
           <field name="view_mode">tree,form</field>
         </record>
         -->
-        <record model="ir.actions.act_window" id="event_list_action">
-            <field name="name">Events</field>
-            <field name="res_model">rentalg1c.event</field>
-            <field name="view_mode">tree,form</field>
-        </record>
 
         <!-- server action to the one above -->
         <!--
@@ -46,11 +41,10 @@
 
         <!-- Top menu item -->
     
+        
+        <!-- menu categories -->
         <menuitem name="Rentalg1c" id="rentalg1c.menu_root"/>
         <menuitem name="rentalg1c" id="rentalg1c_menu" parent="rentalg1c.menu_root"/>
-        <menuitem name="Event List" id="rentalg1c_event_list" parent="rentalg1c_menu" action="event_list_action"/>
-        <!-- menu categories -->
-   
     
         <!-- actions -->
         <!--
