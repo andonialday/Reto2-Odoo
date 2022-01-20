@@ -3,16 +3,23 @@
         
         <!-- list view for client -->
         <record model="ir.ui.view" id="rentalg1c_client_tree">
-            <field name="name">client tree</field>
+            <field name="name">rentalg1c_client_tree</field>
             <field name="model">rentalg1c.client</field>
-            <field name="inherit_id" ref="base.view_users_tree"></field>
+            <!--<field name="inherit_id" ref="base.view_users_tree"></field>-->
             <field name="arch" type="xml">
-                <tree>
-                    <field name="type" string="Client Type"/>
-                    <field name="events">
-                        <field name="event" string="Event"/>
-                        <field name="commercial" string="Commercial"/>
+                <tree string="client list">
+                    <field name="login"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="type"/>
+                    <field name="event">
+                        <sheet>
+                            <field name="name" string="Event Name"/>
+                            <field name="dateStart" string="Event Start Date"/>
+                            <field name="dateEnd" string="Event Ending Date"/>
+                        </sheet>
                     </field>
+                    <field name="commercial"/>
                 </tree>
             </field>
         </record>
@@ -21,44 +28,41 @@
         <record model="ir.ui.view" id="rentalg1c_client_form">
             <field name="name">rentalg1c_client_form</field>
             <field name="model">rentalg1c.client</field>
-            <field name="inherit_id" ref="base.view_users_form"></field>
+            <!-- <field name="inherit_id" ref="base.view_users_form"></field>-->
             <field name="arch" type="xml">
                 <form string="Formulario de Cliente">
-                    <field name="type" string="Type"/>
-                    <field name="commercial" string="Commercial"/>
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="commercial"/>
+                        </group>
+                    </group>
                 </form>
             </field>
         </record>
         
-         <!-- explicit list view definition -->
+        <!-- search view by type -->
+        <record model="ir.ui.view" id="rentalg1c_client_search">
+            <field name="name">rentalg1c_client_search</field>
+            <field name="model">rentalg1c.client</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="type"/>
+                    <filter string="type" name="title" context="{'group_by':'type'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- explicit list view definition -->
         <record model="ir.actions.act_window" id="action_list_client">
             <field name="name">client</field>
             <field name="res_model">rentalg1c.client</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,search</field>
         </record>
         
         <!-- menu -->
-        <menuitem name="Client" id="client.menu_list" parent="rentalg1c_menu"
+        <menuitem name="Client" id="client_menu_list" parent="rentalg1c_menu"
                   action="action_list_client"/>
-        
         
     </data>
 </odoo>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
