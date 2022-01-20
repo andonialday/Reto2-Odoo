@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+
+        <!-- list view for commercial -->
+        <record model="ir.ui.view" id="rentalg1c_commercial_tree">
+            <field name="name">commercial tree</field>
+            <field name="model">rentalg1c.commercial</field>
+            <!--<field name="inherit_id" ref="base.view_users_tree"></field>-->
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="especialization"/>
+                    <field name="clients"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- commercial form view -->
+        <record model="ir.ui.view" id="rentalg1c_commercial_form">
+            <field name="name">rentalg1c_commercial_form</field>
+            <field name="model">rentalg1c.commercial</field>
+            <!-- <field name="inherit_id" ref="base.view_users_form"></field>-->
+            <field name="arch" type="xml">
+                <form string="Formulario de Comercial">
+                    <field name="especialization"/>
+                </form>
+            </field>
+        </record>
+        
+        <!-- explicit list view definition -->
+        <record model="ir.actions.act_window" id="action_list_ideas">
+            <field name="name">commercial</field>
+            <field name="res_model">rentalg1c.commercial</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- menu -->
+        <menuitem name="Commercial" id="commercial_menu_list" parent="rentalg1c_menu"
+                  action="action_list_commercial"/>
+        
+    </data>
+</odoo>
