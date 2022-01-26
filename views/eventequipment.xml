@@ -6,6 +6,12 @@
             <field name="arch" type="xml">
                 <tree string="event equipment list">
                     <field name="quantity"/>
+                    <field name="event">                             
+                        <field name="name" string="Event Name"/>   
+                    </field> 
+                    <field name="equipment">                             
+                        <field name="name" string="Equipment Name"/>   
+                    </field> 
                 </tree>
             </field>
         </record>
@@ -16,7 +22,35 @@
             <field name="arch" type="xml">
                 <form string="event equipment form">
                     <field name="quantity"/>
+                    <field name="event">                             
+                        <field name="name" string="Event Name"/>   
+                    </field> 
+                    <field name="equipment">                             
+                        <field name="name" string="Equipment Name"/>   
+                    </field> 
                 </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rentalg1c_rentalbyevent_search">
+            <field name="name">rentalg1c_rentalbyevent_search</field>
+            <field name="model">rentalg1c.event_equipment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="event"/>
+                    <filter string="Event" name="title" context="{'group_by':'event'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rentalg1c_rentalbyequipment_search">
+            <field name="name">rentalg1c_rentalbyequipment_search</field>
+            <field name="model">rentalg1c.event_equipment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="equipment"/>
+                    <filter string="Equipment" name="title" context="{'group_by':'equipment'}"/>
+                </search>
             </field>
         </record>
     
@@ -28,7 +62,7 @@
         </record>
         
         <!--        MENUITEM-->
-        <menuitem name="Rental List" id="rentalg1c_event_list" parent="rentalg1c_menu" action="event_equipment_list_action"/>
+        <menuitem name="Rentals" id="rentalg1c_rental_list" parent="rentalg1c_menu" action="event_equipment_list_action"/>
         
     </data>
 </odoo>
