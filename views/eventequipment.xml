@@ -8,9 +8,12 @@
                     <field name="quantity"/>
                     <field name="event">                             
                         <field name="name" string="Event Name"/>   
+                        <field name="dateStart" string="Event Starting Date"/>     
+                        <field name="dateEnd" string="Event Ending Date"/>
                     </field> 
                     <field name="equipment">                             
-                        <field name="name" string="Equipment Name"/>   
+                        <field name="name" string="Equipment Name"/>       
+                        <field name="cost" string="Equipment Cost"/>  
                     </field> 
                 </tree>
             </field>
@@ -21,12 +24,18 @@
             <field name="model">rentalg1c.event_equipment</field>
             <field name="arch" type="xml">
                 <form string="event equipment form">
+                    <separator string="Quantity" colspan="1"/> 
                     <field name="quantity"/>
+                    <separator string="Event" colspan="1"/> 
                     <field name="event">                             
-                        <field name="name" string="Event Name"/>   
+                        <field name="name" string="Event Name"/>     
+                        <field name="dateStart" string="Event Starting Date"/>     
+                        <field name="dateEnd" string="Event Ending Date"/>   
                     </field> 
+                    <separator string="Equipment" colspan="1"/>  
                     <field name="equipment">                             
-                        <field name="name" string="Equipment Name"/>   
+                        <field name="name" string="Equipment Name"/>      
+                        <field name="cost" string="Equipment Cost"/>  
                     </field> 
                 </form>
             </field>

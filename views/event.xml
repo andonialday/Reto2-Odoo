@@ -4,15 +4,13 @@
             <field name="name">rentalg1c_event_tree</field>
             <field name="model">rentalg1c.event</field>
             <field name="arch" type="xml">
-                <tree string="event list">
+                <tree string="event list"> 
                     <field name="name" string="Event Name"/>
                     <field name="dateStart" string="Event Start Date"/>
                     <field name="dateEnd" string="Event Ending Date"/>
-                    <field name="description" string="Event Description"/>
-                    <field name="client">                             
-                        <field name="name" string="Client Name"/>   
-                    </field> 
-                    <field name="event_equipments">
+                    <field name="description" string="Event Description"/>                                                        
+                    <field name="client" string="Client Name"/>   
+                    <field name="event_equipments" string="Rentals">
                         <notebook>
                             <page>         
                                 <tree>                                 
@@ -23,7 +21,7 @@
                                 </tree>
                             </page>
                         </notebook>
-                    </field>    
+                    </field> 
                 </tree>
             </field>
         </record>
@@ -34,15 +32,16 @@
             <field name="arch" type="xml">
                 <form string="event form">
                     <group>
-                        <group>
-                            <field name="name" string="Event Name"/>
-                            <field name="dateStart" string="Event Start Date"/>
-                            <field name="dateEnd" string="Event Ending Date"/>
-                            <field name="description" string="Event Description"/>
-                        </group>
-                    </group>                                                                
-                    <field name="client" string="Client Name"/>  
-                    <field name="event_equipments">   
+                        <separator string="EVENT INFORMATION" colspan="2"/>  
+                        <field name="name" string="Event Name"/>
+                        <field name="dateStart" string="Event Start Date"/>
+                        <field name="dateEnd" string="Event Ending Date"/>
+                        <field name="description" string="Event Description"/>
+                    </group>    
+                    <separator string="CLIENT" colspan="2"/>                                                            
+                    <field name="client" string="Client Name"/> 
+                    <separator string="RENTED EQUIPMENT" colspan="2"/> 
+                    <field name="event_equipments" string="Rentals">   
                         <notebook>
                             <page>       
                                 <form>                                 
@@ -64,6 +63,29 @@
                 <search>
                     <field name="client"/>
                     <filter string="Client" name="title" context="{'group_by':'client'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <!--        FILTROS -->        
+        <record model="ir.ui.view" id="rentalg1c_eventbydatestart_search">
+            <field name="name">rentalg1c_eventbydatestart_search</field>
+            <field name="model">rentalg1c.event</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dateStart"/>
+                    <filter string="Starting Date" name="title" context="{'group_by':'datestart'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rentalg1c_eventbydateend_search">
+            <field name="name">rentalg1c_eventbyclient_search</field>
+            <field name="model">rentalg1c.event</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dateEnd"/>
+                    <filter string="Ending Date" name="title" context="{'group_by':'dateend'}"/>
                 </search>
             </field>
         </record>
