@@ -3,13 +3,16 @@
 
         <!-- list view for commercial -->
         <record model="ir.ui.view" id="rentalg1c_commercial_tree">
-            <field name="name">commercial tree</field>
+            <field name="name">rentalg1c_commercial_tree</field>
             <field name="model">rentalg1c.commercial</field>
             <!--<field name="inherit_id" ref="base.view_users_tree"></field>-->
             <field name="arch" type="xml">
                 <tree>
+                    <field name="login" string="Login"/>
+                    <field name="name" string="commercial Name"/>
+                    <field name="email" string="commercial Email"/>
                     <field name="especialization"/>
-                    <field name="clients"/>
+                    <field name="client"/>
                 </tree>
             </field>
         </record>
@@ -21,13 +24,21 @@
             <!-- <field name="inherit_id" ref="base.view_users_form"></field>-->
             <field name="arch" type="xml">
                 <form string="Formulario de Comercial">
-                    <field name="especialization"/>
+                    <group>                         
+                        <group>
+                            <field name="login" string="Login"/>
+                            <field name="password" string="Password"/>
+                            <field name="name" string="Full Name"/>
+                            <field name="email" string="Email"/>
+                            <field name="especialization"/>
+                        </group>
+                    </group>
                 </form>
             </field>
         </record>
         
         <!-- explicit list view definition -->
-        <record model="ir.actions.act_window" id="action_list_ideas">
+        <record model="ir.actions.act_window" id="commercial_list_action">
             <field name="name">commercial</field>
             <field name="res_model">rentalg1c.commercial</field>
             <field name="view_mode">tree,form</field>
@@ -35,7 +46,7 @@
         
         <!-- menu -->
         <menuitem name="Commercial" id="commercial_menu_list" parent="rentalg1c_menu"
-                  action="action_list_commercial"/>
+                  action="commercial_list_action"/>
         
     </data>
 </odoo>
