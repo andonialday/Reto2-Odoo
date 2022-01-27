@@ -32,29 +32,29 @@
             <field name="arch" type="xml">
                 <form string="Formulario de Cliente">
                     <group>
-                        <group>
-                            <field name="login" string="Login"/>
-                            <field name="name" string="Name"/>
-                            <field name="email" string="Email"/>
-                            <field name="tipo"/>
-                            <field name="event"/>
-                        </group>
+                        <field name="login" string="Login"/>
+                        <field name="name" string="Full Name"/>
+                        <field name="email" string="Email"/>
+                        <field name="password" string="Password"/>
+                        <field name="tipo"/>
+                        <field name="commercial"/>
+                        <field name="event"/>
                     </group>
                 </form>
             </field>
         </record>
         
-        <!-- search view by type 
+        <!-- search view by type -->
         <record model="ir.ui.view" id="rentalg1c_client_search">
             <field name="name">rentalg1c_client_search</field>
             <field name="model">rentalg1c.client</field>
             <field name="arch" type="xml">
                 <search>
                     <field name="tipo"/>
-                    <filter string="tipo" name="title" context="{'group_by':'tipo'}"/>
+                    <filter string="Client Type" name="title" context="{'group_by':'tipo'}"/>
                 </search>
             </field>
-        </record>-->
+        </record>
         
         <!-- explicit list view definition -->
         <record model="ir.actions.act_window" id="client_list_action">

@@ -11,7 +11,7 @@ class client(models.Model):
                             ('1', 'ASOCIATION'),
                             ('2', 'ENTERPRISE'),
                             ('3', 'PUBLIC_ENTITY')
-                            ], string='Tipo', copy='False')
+                            ], string='Tipo', default='0')
 
     event = fields.One2many('rentalg1c.event', 'client', ondelete='set null', string='Event')
     commercial = fields.Many2one('rentalg1c.commercial', ondelete='set null', string='Commercial')
