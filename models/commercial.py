@@ -1,22 +1,18 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields
 
 class commercial(models.Model):
-     _name = 'rentalg1c.commercial'
-     _inherit = 'res.users'
+    _name = 'res.users'
+    _inherit = 'res.users'
      
-     especialization = fields.Selection([('0','SONIDO'),
-                                         ('1','ILUMINACION'),
-                                         ('2','PIROTECNIA'),
-                                         ('3','LOGISTICA')
-                                        ],string='Especializacion', copy='False' )
+    especialization = fields.Selection([('0', 'SONIDO'),
+                                       ('1', 'ILUMINACION'),
+                                       ('2', 'PIROTECNIA'),
+                                       ('3', 'LOGISTICA')
+                                       ], string='Especializacion', default='0')
 
 
 
-     client = fields.One2many('rentalg1c.client','commercial', ondelete='set null', string="Client")
+    client = fields.One2many('res.users', 'commercial', ondelete='set null', string="Client")
      

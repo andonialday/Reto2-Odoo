@@ -4,7 +4,7 @@ from odoo import fields
 from odoo import models
 
 class client(models.Model):
-    _name = 'rentalg1c.client'
+    _name = 'res.users'
     _inherit = 'res.users'
 
     tipo = fields.Selection([('0', 'PARTICULAR'),
@@ -14,4 +14,4 @@ class client(models.Model):
                             ], string='Tipo', default='0')
 
     event = fields.One2many('rentalg1c.event', 'client', ondelete='set null', string='Event')
-    commercial = fields.Many2one('rentalg1c.commercial', ondelete='set null', string='Commercial')
+    commercial = fields.Many2one('res.users', ondelete='set null', string='Commercial')

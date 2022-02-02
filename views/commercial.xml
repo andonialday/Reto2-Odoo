@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+
+        <!-- list view for commercial -->
+        <record model="ir.ui.view" id="rentalg1c_commercial_tree">
+            <field name="name">commercial tree</field>
+            <field name="model">res.users</field>
+            <!--<field name="inherit_id" ref="base.view_users_tree"></field>-->
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="login" string="Login"/>
+                    <field name="name" string="commercial Name"/>
+                    <field name="email" string="commercial Email"/>
+                    <field name="especialization"/>
+                    <field name="client"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- commercial form view -->
+        <record model="ir.ui.view" id="rentalg1c_commercial_form">
+            <field name="name">rentalg1c_commercial_form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_simple_form"></field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>                         
+                        <group>
+                            <field name="email" string="commercial Email"/>
+                            <field name="password" string="Password"/>
+                            <field name="especialization"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <!-- explicit list view definition -->
+        <record model="ir.actions.act_window" id="commercial_list_action">
+            <field name="name">commercial</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- menu -->
+        <menuitem name="Commercial" id="commercial_menu_list" parent="rentalg1c_menu"
+                  action="commercial_list_action"/>
+        
+    </data>
+</odoo>
