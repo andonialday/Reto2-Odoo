@@ -17,7 +17,7 @@ class client(models.Model):
     @api.constrains('login')
     def _vali_null_login(self):
         if len(str(self.login)) > 25:
-            raise ValidationError("El campo login no puede tener mÃ¡s de 25 caracteres")
+            raise ValidationError("El campo login no puede tener mas de 25 caracteres")
           
     
     @api.onchange('name')
