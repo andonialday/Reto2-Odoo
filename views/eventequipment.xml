@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rentalg1c_event_equipment_tree">
+            <field name="name">rentalg1c eventequipment tree</field>
+            <field name="model">rentalg1c.event_equipment</field>
+            <field name="arch" type="xml">
+                <tree string="event equipment list">
+                    <field name="quantity"/>
+                    <field name="event">                             
+                        <field name="name" string="Event Name"/>   
+                        <field name="dateStart" string="Event Starting Date"/>     
+                        <field name="dateEnd" string="Event Ending Date"/>
+                    </field> 
+                    <field name="equipment">                             
+                        <field name="name" string="Equipment Name"/>       
+                        <field name="cost" string="Equipment Cost"/>  
+                    </field> 
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="rentalg1c_event_equipment_form">
+            <field name="name">rentalg1c eventequipment form</field>
+            <field name="model">rentalg1c.event_equipment</field>
+            <field name="arch" type="xml">
+                <form string="event equipment form">
+                    <separator string="Quantity" colspan="1"/> 
+                    <field name="quantity"/>
+                    <separator string="Event" colspan="1"/> 
+                    <field name="event">                             
+                        <field name="name" string="Event Name"/>     
+                        <field name="dateStart" string="Event Starting Date"/>     
+                        <field name="dateEnd" string="Event Ending Date"/>   
+                    </field> 
+                    <separator string="Equipment" colspan="1"/>  
+                    <field name="equipment">                             
+                        <field name="name" string="Equipment Name"/>      
+                        <field name="cost" string="Equipment Cost"/>  
+                    </field> 
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rentalg1c_rentalbyevent_search">
+            <field name="name">rentalg1c_rentalbyevent_search</field>
+            <field name="model">rentalg1c.event_equipment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="event"/>
+                    <filter string="Event" name="title" context="{'group_by':'event'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rentalg1c_rentalbyequipment_search">
+            <field name="name">rentalg1c_rentalbyequipment_search</field>
+            <field name="model">rentalg1c.event_equipment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="equipment"/>
+                    <filter string="Equipment" name="title" context="{'group_by':'equipment'}"/>
+                </search>
+            </field>
+        </record>
+    
+        <!--        MENUACTION-->
+        <record model="ir.actions.act_window" id="event_equipment_list_action">
+            <field name="name">Rentals</field>
+            <field name="res_model">rentalg1c.event_equipment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!--        MENUITEM-->
+        <menuitem name="Rentals" id="rentalg1c_rental_list" parent="rentalg1c_menu" action="event_equipment_list_action"/>
+        
+    </data>
+</odoo>
