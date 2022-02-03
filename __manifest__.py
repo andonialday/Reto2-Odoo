@@ -20,17 +20,19 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','report'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',        
+        # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
         'views/commercial.xml',
         'views/client.xml',
         'views/event.xml',
         'views/equipment.xml',
+        'views/eventequipment.xml',
+        'reports.xml',
         
     ],
     # only loaded in demonstration mode

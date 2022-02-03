@@ -1,44 +1,26 @@
-<!--<odoo>
-    <data>
-        
-        <record model="ir.ui.view" id="rentalg1c_equipment">
-          <field name="name">rentalg1c list</field>
-          <field name="model">rentalg1c.equipment</field>
-          <field name="arch" type="xml">
-            <tree>
-              <field name="name"/>
-              <field name="dateadd"/>
-              <field name="cost"/>
-              <field name="description"/>
-            </tree>
-          </field>
-        </record>
-       
-    </data>
-</odoo>-->
-
 <odoo>
     <data>
         <record model="ir.ui.view" id="rentalg1c_equipment_tree">
-            <field name="name">rentalg1c list</field>
+            <field name="name">rentalg1c_equipment_tree</field>
             <field name="model">rentalg1c.equipment</field>
             <field name="arch" type="xml">
-                <tree string="equipment">
+                <tree string="equipment list">
                     <field name="name" string="Equipment Name"/>
                     <field name="dateadd" string="Equipment buy date"/>
                     <field name="cost" string="Equipment cost"/>
                     <field name="description" string="Equipment Description"/>
-                    <!--<field name="client">                             
-                        <field name="name" string="Client Name"/>   
+                    <field name="event_equipments" string="Rentals">
+                        <notebook>
+                            <page>         
+                                <tree>                                 
+                                    <field name="quantity" string="Quantity"/> 
+                                    <field name="event">                             
+                                        <field name="name" string="Event"/>   
+                                    </field>         
+                                </tree>
+                            </page>
+                        </notebook>
                     </field> 
-                    <field name="event_equipments">         
-                        <tree>                                 
-                            <field name="quantity" string="Quantity"/> 
-                            <field name="equipment">                             
-                                <field name="name" string="Equipment"/>   
-                            </field>         
-                        </tree>
-                    </field>    -->
                 </tree>
             </field>
         </record>
@@ -48,36 +30,45 @@
             <field name="model">rentalg1c.equipment</field>
             <field name="arch" type="xml">
                 <form string="equipment form">
-                    <group>                         
-                        <group>
-                           <separator string="DATA" colspan="2"/>
-                            <field name="name" string="Equipment Name"/>
-                            <field name="dateadd" string="Equipment buy date"/>
-                            <field name="cost" string="Equipment cost"/>
-                            <field name="description" string="Equipment Description"/>
-                        </group>
+                    <group>      
+                        <separator string="DATA" colspan="2"/>
+                        <field name="name" string="Equipment Name"/>
+                        <field name="dateadd" string="Equipment buy date"/>
+                        <field name="cost" string="Equipment cost"/>
+                        <field name="description" string="Equipment Description"/>
                     </group>
-                    <!--
-                   <field name="client">                             
-                        <field name="name" string="Client Name"/>   
+                    <separator string="RENTED IN THESE EVENTS" colspan="2"/> 
+                    <field name="event_equipments" string="Rentals">   
+                        <notebook>
+                            <page>       
+                                <form>                                 
+                                    <field name="quantity" string="Quantity"/> 
+                                    <field name="event" string="Event"/>  
+                                </form>
+                            </page>
+                        </notebook>
                     </field> 
-                    <field name="event_equipments">         
-                        <form>                                 
-                            <field name="quantity" string="Quantity"/> 
-                            <field name="equipment">                             
-                                <field name="name" string="Equipment"/>   
-                            </field>         
-                        </form>
-                    </field>    
-                    -->   
                 </form>
             </field>
         </record>
-         <record model="ir.actions.act_window" id="equipment_list_action">
+        
+        <record model="ir.ui.view" id="rentalg1c_equipmentbydateadd_search">
+            <field name="name">rentalg1c_equipmentbydateadd_search</field>
+            <field name="model">rentalg1c.equipment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dateadd"/>
+                    <filter string="Added" name="title" context="{'group_by':'dateadd'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="equipment_list_action">
             <field name="name">Equipments</field>
             <field name="res_model">rentalg1c.equipment</field>
             <field name="view_mode">tree,form</field>
         </record>
-         <menuitem name="Equipment" id="rentalg1c_equipment_list" parent="rentalg1c_menu" action="equipment_list_action"/>
+        
+        <menuitem name="Equipment" id="rentalg1c_equipment_list" parent="rentalg1c_menu" action="equipment_list_action"/>
     </data>
 </odoo>
