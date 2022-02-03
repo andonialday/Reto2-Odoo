@@ -32,8 +32,7 @@
         'views/event.xml',
         'views/equipment.xml',
         'views/eventequipment.xml',
-        'reports.xml',
-        
+        'reports.xml',        
     ],
     # only loaded in demonstration mode
     'demo': [

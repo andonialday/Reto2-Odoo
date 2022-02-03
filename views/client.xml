@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        
+        <!-- list view for client . VIEW -->
+        <record model="ir.ui.view" id="rentalg1c_client_tree">
+            <field name="name">rentalg1c_client_tree</field>
+            <field name="model">rentalg1c.client</field>
+            <!--<field name="inherit_id" ref="rentalg1c.usr"></field>-->
+            <field name="arch" type="xml">
+                <tree string="Client List">
+                    <field name="login" string="Login"/>
+                    <field name="name" string="Name"/>
+                    <field name="email" string="Email"/>
+                    <field name="tipo"/>
+                    <field name="event">
+                        <sheet>
+                            <field name="name" string="Event Name"/>
+                            <field name="dateStart" string="Event Start Date"/>
+                            <field name="dateEnd" string="Event Ending Date"/>
+                        </sheet>
+                    </field>
+                    <field name="commercial"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- client form view . FORM -->
+        <record model="ir.ui.view" id="rentalg1c_client_form">
+            <field name="name">rentalg1c_client_form</field>
+            <field name="model">rentalg1c.client</field>
+            <!-- <field name="inherit_id" ref="rentalg1c.usr"></field>-->
+            <field name="arch" type="xml">
+                <form string="Formulario de Cliente">
+                    <group>
+                        <field name="login" string="Login"/>
+                        <field name="name" string="Full Name"/>
+                        <field name="email" string="Email"/>
+                        <field name="tipo"/>
+                        <field name="commercial"/>
+                        <field name="event"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Filter by Type -->
+        <record model="ir.ui.view" id="rentalg1c_client_search">
+            <field name="name">rentalg1c_client_search</field>
+            <field name="model">rentalg1c.client</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="tipo"/>
+                    <filter string="Type" name="title" context="{'group_by':'tipo'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Filter by Name -->
+        <record model="ir.ui.view" id="rentalg1c_client_search">
+            <field name="name">rentalg1c_client_search</field>
+            <field name="model">rentalg1c.client</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <filter string="Full Name" name="title" context="{'group_by':'name'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Filter by Login -->
+        <record model="ir.ui.view" id="rentalg1c_client_search">
+            <field name="name">rentalg1c_client_search</field>
+            <field name="model">rentalg1c.client</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="login"/>
+                    <filter string="Login" name="title" context="{'group_by':'login'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Filter by Commercial -->
+        <record model="ir.ui.view" id="rentalg1c_client_search">
+            <field name="name">rentalg1c_client_search</field>
+            <field name="model">rentalg1c.client</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="commercial"/>
+                    <filter string="Commercial" name="title" context="{'group_by':'commercial'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- explicit list view definition . MENUACTION -->
+        <record model="ir.actions.act_window" id="client_list_action">
+            <field name="name">client</field>
+            <field name="res_model">rentalg1c.client</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- menu . MENUITEM -->
+        <menuitem name="Client" id="client_menu_list" parent="rentalg1c_menu"
+                  action="client_list_action"/>
+        
+    </data>
+</odoo>
