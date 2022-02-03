@@ -20,3 +20,4 @@ class commercial(models.Model):
 
      client = fields.One2many('rentalg1c.client','commercial', ondelete='set null', string="Client")
      
+  

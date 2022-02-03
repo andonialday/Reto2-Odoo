@@ -12,7 +12,13 @@
                     <field name="name" string="commercial Name"/>
                     <field name="email" string="commercial Email"/>
                     <field name="especialization"/>
-                    <field name="client"/>
+                    <field name="client">
+                        <sheet>
+                            <field name="name" string="Client Name"/>
+                            <field name="email" string="Client Email"/>
+                            <field name="tipo" string="Client Type"/>
+                        </sheet>
+                    </field>
                 </tree>
             </field>
         </record>
@@ -27,10 +33,10 @@
                     <group>                         
                         <group>
                             <field name="login" string="Login"/>
-                            <field name="password" string="Password"/>
                             <field name="name" string="Full Name"/>
                             <field name="email" string="Email"/>
                             <field name="especialization"/>
+                            <field name="client"/>
                         </group>
                     </group>
                 </form>
