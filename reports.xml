@@ -1,0 +1,171 @@
+<odoo>
+    <data>
+        <!-- Commercial Report-->
+        <report
+            id="report_commercial"
+            model="rentalg1c.commercial"
+            string="Commercial Report"
+            name="rentalg1c.report_commercial_view"
+            file="rentalg1c.report_commercial"
+            report_type="qweb-pdf" />
+        <!--Template definition-->    
+        <template id="report_commercial_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h3>_</h3>
+                            <h2>-</h2>
+                            <h2>Commercial Report</h2>
+                            <p><b>Commercial - </b><span t-field="doc.name"/></p>
+                            <p>     <b>Email:  </b><span t-field="doc.email"/></p>
+                            <p>     <b>Specialization: </b><span t-field="doc.especialization"/></p>
+                            <h4>Clients</h4>
+                            <ul>
+                                <t t-foreach="doc.client" t-as="client">
+                                    <li>
+                                        <span t-field="client.name"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+        <!-- Client Report-->
+        <report
+            id="report_client"
+            model="rentalg1c.client"
+            string="Client Report"
+            name="rentalg1c.report_client_view"
+            file="rentalg1c.report_client"
+            report_type="qweb-pdf" />
+        <!--Template definition-->    
+        <template id="report_client_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h3>_</h3>
+                            <h2>-</h2>
+                            <h2>Client Report</h2>
+                            <p><b>Client - </b><span t-field="doc.name"/></p>
+                            <p>     <b>Email:  </b><span t-field="doc.email"/></p>
+                            <p>     <b>Commercial asigned to: </b><span t-field="doc.commercial.name"/></p>
+                            <p>     <b>Type: </b><span t-field="doc.tipo"/></p>
+                            <h4>Events</h4>
+                            <ul>
+                                <t t-foreach="doc.event" t-as="event">
+                                    <li>
+                                        <span t-field="event.name"/>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+        <!-- Event Report-->
+        <report
+            id="report_event"
+            model="rentalg1c.event"
+            string="Event Report"
+            name="rentalg1c.report_event_view"
+            file="rentalg1c.report_event"
+            report_type="qweb-pdf" />
+        <!--Template definition-->    
+        <template id="report_event_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h3>_</h3>
+                            <h2>-</h2>
+                            <h2>Event Report</h2>
+                            <p><b>Event Name - </b><span t-field="doc.name"/></p>
+                            <p>     <b>From </b><span t-field="doc.dateStart"/> to <span t-field="doc.dateEnd"/></p>   
+                            <h4>Rented Equipments</h4>
+                            <ul>
+                                <t t-foreach="doc.event_equipments" t-as="rent">
+                                    <li>
+                                        <p>
+                                            <span t-field="rent.equipment.name"/> 
+                                            <span t-field="rent.quantity"/>
+                                        </p>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+        <!-- Equipment Report-->
+        <report
+            id="report_equipment"
+            model="rentalg1c.equipment"
+            string="Equipment Report"
+            name="rentalg1c.report_equipment_view"
+            file="rentalg1c.report_equipment"
+            report_type="qweb-pdf" />
+        <!--Template definition-->    
+        <template id="report_equipment_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h3>_</h3>
+                            <h2>-</h2>
+                            <h2>Equipment Report</h2>
+                            <p><b>Equipment Name - </b><span t-field="doc.name"/></p>
+                            <p>     <b>Cost per unit: </b><span t-field="doc.cost"/></p>
+                            <p>     <b>Added </b><span t-field="doc.dateadd"/></p>                            
+                            <h4>Rented in these Events</h4>
+                            <ul>
+                                <t t-foreach="doc.event_equipments" t-as="rent">
+                                    <li>
+                                        <p>
+                                            <span t-field="rent.event.name"/> 
+                                            <span t-field="rent.quantity"/>
+                                        </p>
+                                    </li>
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        
+        <!-- EventEquipment Report-->
+        <report
+            id="report_event_equipment"
+            model="rentalg1c.event_equipment"
+            string="Event_Equipment Report"
+            name="rentalg1c.report_event_equipment_view"
+            file="rentalg1c.report_event_equipment"
+            report_type="qweb-pdf" />
+        <!--Template definition-->    
+        <template id="report_event_equipment_view">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h3>_</h3>
+                            <h2>-</h2>
+                            <h2>Rental Report</h2>
+                            <p><b>Event - </b><span t-field="doc.event.name"/></p>
+                            <p><b>Equipment - </b><span t-field="doc.equipment.name"/></p>
+                            <p><b>Quantity - </b><span t-field="doc.quantity"/></p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
