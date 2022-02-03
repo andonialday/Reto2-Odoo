@@ -1,0 +1,74 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="rentalg1c_equipment_tree">
+            <field name="name">rentalg1c_equipment_tree</field>
+            <field name="model">rentalg1c.equipment</field>
+            <field name="arch" type="xml">
+                <tree string="equipment list">
+                    <field name="name" string="Equipment Name"/>
+                    <field name="dateadd" string="Equipment buy date"/>
+                    <field name="cost" string="Equipment cost"/>
+                    <field name="description" string="Equipment Description"/>
+                    <field name="event_equipments" string="Rentals">
+                        <notebook>
+                            <page>         
+                                <tree>                                 
+                                    <field name="quantity" string="Quantity"/> 
+                                    <field name="event">                             
+                                        <field name="name" string="Event"/>   
+                                    </field>         
+                                </tree>
+                            </page>
+                        </notebook>
+                    </field> 
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="rentalg1c_equipment_form">
+            <field name="name">rentalg1c_equipment_form</field>
+            <field name="model">rentalg1c.equipment</field>
+            <field name="arch" type="xml">
+                <form string="equipment form">
+                    <group>      
+                        <separator string="DATA" colspan="2"/>
+                        <field name="name" string="Equipment Name"/>
+                        <field name="dateadd" string="Equipment buy date"/>
+                        <field name="cost" string="Equipment cost"/>
+                        <field name="description" string="Equipment Description"/>
+                    </group>
+                    <separator string="RENTED IN THESE EVENTS" colspan="2"/> 
+                    <field name="event_equipments" string="Rentals">   
+                        <notebook>
+                            <page>       
+                                <form>                                 
+                                    <field name="quantity" string="Quantity"/> 
+                                    <field name="event" string="Event"/>  
+                                </form>
+                            </page>
+                        </notebook>
+                    </field> 
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="rentalg1c_equipmentbydateadd_search">
+            <field name="name">rentalg1c_equipmentbydateadd_search</field>
+            <field name="model">rentalg1c.equipment</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="dateadd"/>
+                    <filter string="Added" name="title" context="{'group_by':'dateadd'}"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="equipment_list_action">
+            <field name="name">Equipments</field>
+            <field name="res_model">rentalg1c.equipment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem name="Equipment" id="rentalg1c_equipment_list" parent="rentalg1c_menu" action="equipment_list_action"/>
+    </data>
+</odoo>

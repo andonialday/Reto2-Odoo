@@ -2,8 +2,9 @@
 
 import controllers.controllers
 #import models.models
-import models.client
+import models.rentaluser
 import models.commercial
-import models.equipment
+import models.client
 import models.event
+import models.equipment
 import models.event_equipment
