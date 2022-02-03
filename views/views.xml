@@ -40,12 +40,10 @@
         -->
 
         <!-- Top menu item -->
-    
         
         <!-- menu categories -->
         <menuitem name="Rentalg1c" id="rentalg1c.menu_root"/>
         <menuitem name="rentalg1c" id="rentalg1c_menu" parent="rentalg1c.menu_root"/>
-    
         <!-- actions -->
         <!--
         <menuitem name="List" id="rentalg1c.menu_1_list" parent="rentalg1c.menu_1"
