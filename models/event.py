@@ -21,3 +21,14 @@ class event(models.Model):
         for record in self:
             if record.dateEnd < record.dateStart:
                 raise ValidationError("The Event cannot have an Ending Date earlier than the Starting Date")
+            
+    @api.onchange('dateEnd', 'dateStart')
+    def _control_valid_end_date(self):    
+        if self.dateEnd and self.dateStart:
+            if self.dateEnd < self.dateStart:
+                return {
+                    'warning': {
+                    'title': "Incorrect Date End",
+                    'message': "The Event cannot have an Ending Date earlier than the Starting Date",
+                    },
+                }
